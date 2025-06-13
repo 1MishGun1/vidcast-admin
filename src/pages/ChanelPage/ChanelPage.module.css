@@ -1,0 +1,9 @@
+.chanel_page {
+  margin: 20px 100px 0px 100px;
+}
+
+.chanel_last_videos_items {
+  display: flex;
+  margin-top: 10px;
+  gap: 14px;
+}

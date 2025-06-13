@@ -1,0 +1,154 @@
+.login_page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form_row {
+  display: flex;
+  flex-direction: column;
+}
+
+.login_form_section {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.login_title {
+  text-align: center;
+  font-size: 32px;
+}
+
+.form_login[data-theme="light"] {
+  --bg-color: rgb(245, 245, 245);
+}
+
+.form_login[data-theme="dark"] {
+  --bg-color: rgb(23, 23, 23);
+}
+
+.form_login {
+  position: relative;
+  width: 20%;
+  background-color: var(--bg-color);
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    border-radius: 10px;
+    top: -4px;
+    left: -4px;
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
+    background: linear-gradient(
+      45deg,
+      rgb(0, 8, 238),
+      rgb(243, 18, 33),
+      rgb(0, 8, 238),
+      rgb(243, 18, 33),
+      rgb(0, 8, 238),
+      rgb(243, 18, 33),
+      rgb(0, 8, 238),
+      rgb(243, 18, 33)
+    );
+    background-size: 300%;
+    z-index: -1;
+    animation: formMove 12s linear infinite;
+  }
+
+  &::after {
+    filter: blur(16px);
+  }
+}
+
+@keyframes formMove {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 300% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.form_input[data-theme="light"],
+.form_btn[data-theme="light"],
+.form_input[data-theme="light"] {
+  --color: black;
+}
+
+.form_input[data-theme="dark"],
+.form_btn[data-theme="dark"],
+.form_input[data-theme="dark"] {
+  --color: white;
+}
+
+.form_input {
+  background-color: transparent;
+  border: 1px solid var(--color);
+  border-radius: 4px;
+  padding: 8px 0px;
+  padding-left: 10px;
+  font-weight: 600;
+  margin-top: 4px;
+  color: var(--color);
+}
+
+.form_btn {
+  width: 50%;
+  height: 36px;
+  border: 1px solid var(--color);
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  transition: all ease 0.3s;
+  margin: 0 auto;
+  color: var(--color);
+}
+
+.form_btn:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(243, 18, 96, 1) 25%,
+    rgba(0, 111, 238, 1) 75%
+  );
+  color: white;
+  border: 1px solid transparent;
+}
+
+.form_register {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding-top: 10px;
+}
+
+.form_question {
+  font-size: 16px;
+}
+
+.error_message {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+.input_error {
+  border-color: red !important;
+}
+
+.form_error {
+  color: red;
+  margin-bottom: 1rem;
+  text-align: center;
+}

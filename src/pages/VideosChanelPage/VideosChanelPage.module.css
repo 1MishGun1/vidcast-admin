@@ -1,0 +1,10 @@
+.chanel_videos {
+  margin: 20px 100px 0px 100px;
+}
+
+.chanel_videos_items {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
