@@ -35,6 +35,45 @@ export const getUserById = createAsyncThunk<IUser, string>(
   }
 );
 
+export const blockUserTemporarily = createAsyncThunk(
+  "users/blockTemporarily",
+  async (
+    {
+      userId,
+      reason,
+      expiresAt,
+    }: { userId: string; reason: string; expiresAt: string },
+    thunkAPI
+  ) => {
+    try {
+      const token = localStorage.getItem("token");
+      await axios.patch(
+        `/admin/block/${userId}`,
+        { reason, expiresAt },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+    } catch (err) {
+      return thunkAPI.rejectWithValue("Ошибка при временной блокировке");
+    }
+  }
+);
+
+export const blockUserPermanently = createAsyncThunk(
+  "users/blockPermanently",
+  async ({ userId, reason }: { userId: string; reason: string }, thunkAPI) => {
+    try {
+      const token = localStorage.getItem("token");
+      await axios.patch(
+        `/admin/block-permanent/${userId}`,
+        { reason },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+    } catch (err) {
+      return thunkAPI.rejectWithValue("Ошибка при перманентной блокировке");
+    }
+  }
+);
+
 const initialState: IUserState = {
   allUsers: [],
   currentUser: null,
@@ -116,6 +155,28 @@ export const authSlice = createSlice({
       .addCase(getUserById.rejected, (state) => {
         state.loading = false;
         state.error = "Error getting user";
+      })
+
+      // Ban user
+      .addCase(blockUserTemporarily.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(blockUserTemporarily.fulfilled, (state) => {
+        state.loading = false;
+      })
+      .addCase(blockUserTemporarily.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload as string;
+      })
+      .addCase(blockUserPermanently.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(blockUserPermanently.fulfilled, (state) => {
+        state.loading = false;
+      })
+      .addCase(blockUserPermanently.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload as string;
       });
   },
 });

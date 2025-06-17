@@ -12,6 +12,9 @@ export interface IUser {
   tokenUser: string;
   subscriptions?: string[];
   subscribers?: string[];
+  isBlocked: boolean;
+  blockReason?: string;
+  blockExpiresAt?: string | null;
 }
 
 export interface IUserState {

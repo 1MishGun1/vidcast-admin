@@ -11,19 +11,18 @@
   }
 }
 
-.video__delete_button,
-.video__edit_button {
+.video__delete_button {
+  display: block;
   position: absolute;
-  top: 8px;
-  background: rgba(0, 0, 0, 0.8);
+  top: 10px;
   color: white;
   border: none;
   padding: 6px 10px;
   border-radius: 6px;
   opacity: 0;
-  pointer-events: none;
+  /* pointer-events: none; */
   transition: opacity 0.2s ease;
-  z-index: 10;
+  z-index: 10000;
   cursor: pointer;
   font-size: 14px;
 }
@@ -31,11 +30,6 @@
 .video__delete_button {
   right: 8px;
   background: rgba(255, 0, 0, 0.8);
-}
-
-.video__edit_button {
-  right: 48px;
-  background: rgba(0, 128, 255, 0.8);
 }
 
 .video_item_info {

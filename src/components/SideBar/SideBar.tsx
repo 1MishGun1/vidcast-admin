@@ -2,8 +2,10 @@ import Styles from "./SideBar.module.css";
 import no_avatar from "../../assets/no_avatar.png";
 
 import { FaRegUserCircle, FaFireAlt, FaHistory } from "react-icons/fa";
+import { IoHomeOutline } from "react-icons/io5";
 import { RiPlayList2Fill } from "react-icons/ri";
 import { BiLike } from "react-icons/bi";
+import { PiVideo } from "react-icons/pi";
 import { PiSignInBold } from "react-icons/pi";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import { useState, useRef, useEffect } from "react";
@@ -91,7 +93,7 @@ export const SideBar = () => {
 
         <div className={Styles.nav__items}>
           <Link to={"/"} className={Styles.nav__item} data-theme={theme}>
-            <FaFireAlt size={22} />
+            <IoHomeOutline size={22} />
             {!isShort && <span>Главная</span>}
           </Link>
           <Link to={"/users"} className={Styles.nav__item} data-theme={theme}>
@@ -99,7 +101,7 @@ export const SideBar = () => {
             {!isShort && <span>Пользователи</span>}
           </Link>
           <Link to={`/videos`} className={Styles.nav__item} data-theme={theme}>
-            <RiPlayList2Fill size={22} />
+            <PiVideo size={22} />
             {!isShort && <span>Все видео</span>}
           </Link>
           {isAuth ? (

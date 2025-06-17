@@ -50,14 +50,12 @@ export const VideoCard = ({
         layout === "horizontal" ? Styles["video__item_horizontal"] : ""
       } ${layout === "short" ? Styles["video__item_short"] : ""}`}
     >
-      <>
         <button
           className={Styles["video__delete_button"]}
           onClick={handleDelete}
         >
-          <MdDelete />
+          Удалить
         </button>
-      </>
       {cover ? (
         <img
           src={`http://localhost:3333${cover}`}

@@ -1,7 +1,7 @@
 import { UserCard } from "../UserCard/UserCard";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState, AppDispatch } from "../../store";
+import { AppDispatch } from "../../store";
 import { getAllUsers, selectAllUsers } from "../../features/auth/auth";
 
 import Styles from "./UserList.module.css";

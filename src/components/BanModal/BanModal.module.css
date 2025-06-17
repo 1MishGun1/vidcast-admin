@@ -1,0 +1,44 @@
+.modal {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  padding: 8px;
+}
+
+.modal_title {
+  margin-bottom: 10px;
+}
+
+.modal_text[data-theme="dark"],
+.modal_time[data-theme="dark"] {
+  --color: white;
+}
+
+.modal_text[data-theme="light"],
+.modal_time[data-theme="light"] {
+  --color: black;
+}
+
+.modal_text,
+.modal_time {
+  background-color: transparent;
+  outline: none;
+  border: 1px solid var(--color);
+  border-radius: 4px;
+  padding-left: 4px;
+  height: 80px;
+  color: var(--color);
+  margin-bottom: 10px;
+}
+
+.modal_time {
+  height: 20px;
+}
+
+.modal_btn {
+  border: 1px solid var(--color);
+  padding: 4px 6px;
+  border-radius: 4px;
+  margin-right: 5px;
+  color: var(--color);
+}
